@@ -1,0 +1,132 @@
+[
+ {
+  "id": "s0_happy",
+  "title": "Clean invoice, exact PO match",
+  "hint": "Happy path",
+  "file": "s0_happy.pdf",
+  "form": "pdf",
+  "expect": "ready",
+  "expect_flags": [],
+  "headline": false
+ },
+ {
+  "id": "s1_split",
+  "title": "Third invoice on the same PO",
+  "hint": "Split billing",
+  "file": "s1_split.pdf",
+  "form": "pdf",
+  "expect": "review",
+  "expect_flags": [
+   "PO_OVERBILLED"
+  ],
+  "headline": true
+ },
+ {
+  "id": "s2_dup_photo",
+  "title": "Re-sent invoice, phone photo",
+  "hint": "Near-duplicate",
+  "file": "s2_dup_photo.jpg",
+  "form": "photo",
+  "expect": "hold",
+  "expect_flags": [
+   "DUPLICATE"
+  ],
+  "headline": true
+ },
+ {
+  "id": "s3_bank_change",
+  "title": "Perfect match, new bank account",
+  "hint": "Bank details changed",
+  "file": "s3_bank_change.pdf",
+  "form": "pdf",
+  "expect": "hold",
+  "expect_flags": [
+   "BANK_MISMATCH"
+  ],
+  "headline": true
+ },
+ {
+  "id": "s4_photo_no_po",
+  "title": "Crumpled photo, no PO number",
+  "hint": "PO inferred",
+  "file": "s4_photo_no_po.jpg",
+  "form": "photo",
+  "expect": "review",
+  "expect_flags": [
+   "PO_INFERRED"
+  ],
+  "headline": true
+ },
+ {
+  "id": "s5a_tol_ok",
+  "title": "Price 1.8% above PO",
+  "hint": "Within tolerance",
+  "file": "s5a_tol_ok.pdf",
+  "form": "pdf",
+  "expect": "ready",
+  "expect_flags": [
+   "PRICE_WITHIN_TOLERANCE"
+  ],
+  "headline": false
+ },
+ {
+  "id": "s5b_tol_over",
+  "title": "Price 4% above PO",
+  "hint": "Outside tolerance",
+  "file": "s5b_tol_over.pdf",
+  "form": "pdf",
+  "expect": "review",
+  "expect_flags": [
+   "PRICE_OVER_TOLERANCE"
+  ],
+  "headline": false
+ },
+ {
+  "id": "s6_injection",
+  "title": "Hidden text aimed at the AI",
+  "hint": "Prompt injection",
+  "file": "s6_injection.pdf",
+  "form": "pdf",
+  "expect": "hold",
+  "expect_flags": [
+   "PROMPT_INJECTION"
+  ],
+  "headline": false
+ },
+ {
+  "id": "s7_gst_type",
+  "title": "IGST charged on a Haryana supply",
+  "hint": "Wrong GST type",
+  "file": "s7_gst_type.jpg",
+  "form": "scan",
+  "expect": "review",
+  "expect_flags": [
+   "GST_TYPE_MISMATCH"
+  ],
+  "headline": false
+ },
+ {
+  "id": "s8_quote",
+  "title": "A quotation, not an invoice",
+  "hint": "Not an invoice",
+  "file": "s8_quote.pdf",
+  "form": "pdf",
+  "expect": "reject",
+  "expect_flags": [
+   "NOT_AN_INVOICE"
+  ],
+  "headline": false
+ },
+ {
+  "id": "s9_short_receipt",
+  "title": "Billed 100, received 60",
+  "hint": "Three-way mismatch",
+  "file": "s9_short_receipt.pdf",
+  "form": "pdf",
+  "expect": "review",
+  "expect_flags": [
+   "QTY_NOT_RECEIVED"
+  ],
+  "headline": false
+ }
+]

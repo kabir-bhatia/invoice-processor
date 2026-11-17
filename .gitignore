@@ -1,0 +1,23 @@
+# secrets
+.env
+.env.*
+
+# python / node
+__pycache__/
+*.pyc
+.venv/
+frontend/node_modules/
+frontend/dist/
+
+# local data and scratch
+backend/var/
+backend/samples/spike/
+
+# the company brief / JD (not mine to publish)
+/*.pdf
+
+# local tooling and the demo-video edit (personal paths, large media)
+.claude/
+video_edit/
+*.mp4
+*.m4a
